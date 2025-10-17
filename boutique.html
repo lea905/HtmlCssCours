@@ -143,7 +143,13 @@
 
 </div>
 
+<a href="#" class="to-top"></a>
 
+<script>
+    document.querySelector('.to-top').addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>
 
 </body>
 </html>
