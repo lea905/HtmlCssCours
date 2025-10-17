@@ -11,3 +11,47 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.to-top {
+    position: fixed;
+    bottom: 20px;          /* distance par rapport au bas */
+    right: 20px;           /* distance par rapport au bord droit */
+    width: 50px;           /* taille du bouton */
+    height: 50px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.to-top::before,
+.to-top::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;           /* prend toute la taille du bouton */
+    height: 100%;
+    background-size: contain;  /* image entière, pas rognée */
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    border-radius: 5px;       /* optionnel : coins légèrement arrondis */
+}
+
+.to-top::before {
+    background-image: url('../img/choseFlecheAvant.png');
+    opacity: 1;
+}
+
+.to-top::after {
+    background-image: url('../img/choseFleche.png');
+    opacity: 0;
+}
+
+.to-top:hover::before {
+    opacity: 0;
+}
+
+.to-top:hover::after {
+    opacity: 1;
+    transform: rotate(360deg); /* rotation légère au hover */
+}
